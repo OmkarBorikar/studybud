@@ -1,0 +1,13 @@
+<!-- we have written delete html file for confirmation message before deleting-->
+
+{% extends 'main.html' %}
+
+{% block conent %}
+<form method = "POST" action="">
+
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{obj}}"</p>
+    <a href="{{request.META.HTTP_REFERER}}" >Go Back</a> <!--request.META.HTTP_REFERER is used to go back to the previous page-->
+       <input type = "submit" value = "Confirm" />
+</form>
+{% endblock %}

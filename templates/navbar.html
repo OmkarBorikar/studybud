@@ -1,0 +1,18 @@
+<a href='/'>
+<h1> Logo </h1>
+
+</a>
+
+<form method = "GET" action  = "{% url 'home' %}">
+    <input type = "text" name = "q" placeholder = "Search here"/>
+
+</form>
+
+
+{% if request.user.is_authenticated %} <!-- check if user is authenticated or not .i.ie logged in or not-->
+<p> Hello {{request.user}} !! </p>
+<a href ="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href = "{% url 'login' %}">Login</a>
+{% endif %}
+<hr>

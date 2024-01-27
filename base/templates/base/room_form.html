@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block conent %}
+
+
+<div>
+    <!--Post method keeps data hidden , action balnk means submitting this form will keep us on this page itself--> 
+    <form method = 'POST' action = ""> 
+        <!--# CSRF (or XSRF) is also known as cross-site request forgery. As the name suggests, 
+            CSRF is a kind of attack on sites mostly done by other (malicious) sites, or sometimes by a (malicious) user on the site. 
+             The CSRF token is like an alphanumeric code or random secret value that's peculiar to that particular site. 
+             Hence, no other site has the same code. In Django, the token is set by CsrfViewMiddleware in the settings.py file-->
+        {% csrf_token %} 
+        {{form.as_p}} <!--rendering form variable returned by CreateRoom method in views.py . as_p is used fo formatting fields on page-->
+        <input type = "submit" value = "Submit" / > <!--Submit button -->
+
+
+    </form>
+
+</div>
+
+
+{% endblock %}
